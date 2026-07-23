@@ -33,8 +33,8 @@ def Julia_fractal(width, height, xx, yy, scale, max_iterations):
         if not np.any(mask):
             break
         z[mask] = z[mask] * z[mask] + c
-        escaped = np.abs(z) > 2
-        newly_escaped = escaped & mask
+        escaped_nums_mask = np.abs(z) > 2
+        newly_escaped = escaped_nums_mask & mask
         if np.any(newly_escaped):
             iterations[newly_escaped] = (i - (np.log(np.log(np.abs(z[newly_escaped]))) / np.log(2)))
             mask[newly_escaped] = False

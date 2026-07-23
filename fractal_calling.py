@@ -1,7 +1,5 @@
 import settings
 import math
-
-
 import numpy as np
 
 

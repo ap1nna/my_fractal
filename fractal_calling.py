@@ -12,8 +12,8 @@ def NEW_mandelbrot(width, height, xx, yy, scale, max_iterations):
     mask = np.ones(c.shape, dtype=bool)
     for i in range(max_iterations):
         z[mask] = z[mask] * z[mask] + c[mask]
-        escaped = np.abs(z) > 2
-        newly_escaped = escaped & mask
+        escaped_nums_mask = np.abs(z) > 2
+        newly_escaped = escaped_nums_mask & mask
         iterations[newly_escaped] = (i + 1 - (np.log(np.log(np.abs(z[newly_escaped]))) / np.log(2)))
         mask[newly_escaped] = False
     iterations[mask] = max_iterations
